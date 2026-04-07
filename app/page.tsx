@@ -60,181 +60,202 @@ export default function HomePage() {
     <main className="bg-zinc-900 text-zinc-300">
 
       {/* HERO */}
-      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center text-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/academy-bg.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 max-w-3xl px-6">
-          <p className="text-sm uppercase tracking-[0.25em] text-amber-400 mb-4">
-            TONEHOUSE STUDIOS PRESENTS
+        <div className="relative z-10 max-w-2xl px-6">
+          <p className="text-xs uppercase tracking-[0.3em] text-amber-400 mb-5">
+            Tonehouse Studios
           </p>
 
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-6xl font-semibold text-white mb-5 leading-tight">
             Tonehouse Academy
           </h1>
 
-          <p className="text-lg md:text-xl text-zinc-300 mb-8">
-            Learn Rock. Play Loud. Perform Live.
+          <p className="text-lg text-zinc-300 mb-2">
+            Experiential Music School
+          </p>
+
+          <p className="text-zinc-500 mb-10 leading-relaxed">
+            Learn in a band. Train with real musicians. Perform live.
           </p>
 
           <a
             href="#form"
-            className="inline-block bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3 rounded-xl font-semibold text-black hover:opacity-90 transition"
+            className="inline-block bg-gradient-to-r from-amber-400 to-orange-500 
+            px-8 py-4 rounded-full text-base font-semibold text-black 
+            hover:opacity-90 transition shadow-lg"
           >
             Apply Now
           </a>
         </div>
       </section>
 
-      {/* CONTENT */}
-      <div className="mx-auto max-w-5xl px-6 py-20">
+      <div className="max-w-2xl mx-auto px-6 py-24 space-y-24 text-center">
 
         {/* ABOUT */}
-        <section className="pb-16">
-          <h2 className="mb-4 text-2xl font-semibold text-white">About</h2>
-          <p className="max-w-3xl text-lg leading-relaxed">
-            At Tonehouse Academy, musicians don’t just take lessons — they join bands.
+        <section className="space-y-6">
+          <h2 className="text-2xl text-white">About</h2>
+          <p className="text-lg leading-relaxed text-zinc-300">
+            At Tonehouse Academy, musicians don’t just take lessons — they learn by playing in real bands,
+            guided by experienced instructors, and work towards a live performance.
           </p>
         </section>
 
         {/* PROGRAM */}
-        <section className="pb-16">
-          <h2 className="mb-6 text-2xl font-semibold text-white">Program</h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              "2.5 hours per session, fortnightly",
-              "Small band groups",
-              "Final live outdoor performance",
-            ].map((item) => (
-              <article key={item} className="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
-                <p className="text-base text-zinc-200">{item}</p>
-              </article>
-            ))}
+        <section className="space-y-10">
+          <h2 className="text-2xl text-white">Program</h2>
+
+          <div className="space-y-4 text-3xl md:text-4xl font-semibold leading-tight">
+            <p className="text-zinc-300">8 weeks.</p>
+            <p className="text-zinc-300">Real musicians.</p>
+            <p className="text-zinc-300">Play in a band.</p>
+            <p className="text-amber-400">Perform live.</p>
           </div>
         </section>
 
-        {/* WHO */}
-        <section className="pb-16">
-          <h2 className="mb-4 text-2xl font-semibold text-white">Who it&apos;s for</h2>
-          <p className="mb-4">Guitarists, Drummers, Vocalists, Bassists, Keyboardists</p>
-          <p className="text-amber-300">All levels welcome — passion required</p>
+        {/* STATEMENT */}
+        <section>
+          <p className="text-3xl md:text-4xl text-white font-semibold leading-snug">
+            You don’t learn music here.
+            <br />
+            <span className="text-amber-400">You play it.</span>
+          </p>
         </section>
 
-        {/* WHY */}
-        <section className="pb-16">
-          <h2 className="mb-6 text-2xl font-semibold text-white">Why Tonehouse</h2>
-          <ul className="grid gap-3 md:grid-cols-2">
-            {[
-              "Band-based learning",
-              "Real stage experience",
-              "Community",
-              "Performance-focused",
-            ].map((reason) => (
-              <li key={reason} className="rounded-2xl border border-zinc-800 bg-zinc-950/40 px-5 py-4 text-zinc-200">
-                {reason}
-              </li>
-            ))}
-          </ul>
+        {/* GENRES */}
+        <section className="space-y-6">
+          <h2 className="text-2xl text-white">Music Genres</h2>
+
+          <p className="text-xl md:text-2xl tracking-wide text-zinc-300 leading-relaxed">
+            Rock &nbsp;•&nbsp; Metal &nbsp;•&nbsp; Pop
+            <br />
+            Blues &nbsp;•&nbsp; Jazz
+          </p>
+
+          <p className="text-sm text-zinc-600">And more as we grow</p>
+        </section>
+
+        {/* WHO */}
+        <section className="space-y-4">
+          <h2 className="text-2xl text-white">Who it&apos;s for</h2>
+
+          <p className="text-lg text-zinc-300 leading-relaxed">
+            Guitarists • Drummers • Vocalists • Bassists • Keyboardists
+          </p>
+
+          <p className="text-amber-400 text-sm">
+            All levels welcome — passion required
+          </p>
         </section>
 
         {/* FORM */}
-        <section id="form" className="scroll-mt-16 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6 md:p-8">
-          <h2 className="mb-2 text-2xl font-semibold text-white">Apply to Tonehouse Academy</h2>
-          <p className="mb-8 text-zinc-400">Tell us about your music journey and we&apos;ll be in touch.</p>
+        <section id="form" className="pt-20">
+          <div className="max-w-xl mx-auto bg-zinc-950/60 border border-zinc-800 rounded-2xl p-8 shadow-xl">
 
-          <form onSubmit={onSubmit} className="grid gap-4">
+            <h2 className="text-2xl text-white mb-2 text-center">
+              Apply
+            </h2>
 
-            <input
-              required
-              type="text"
-              placeholder="Name"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            />
+            <p className="text-zinc-400 mb-8 text-center">
+              Tell us about your music journey and we’ll be in touch.
+            </p>
 
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            />
+            <form onSubmit={onSubmit} className="grid gap-4">
 
-            <input
-              required
-              type="tel"
-              placeholder="Phone"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            />
-
-            {/* INSTRUMENT DROPDOWN */}
-            <select
-              required
-              value={form.instrument}
-              onChange={(e) =>
-                setForm({ ...form, instrument: e.target.value, otherInstrument: "" })
-              }
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            >
-              <option value="">Select Instrument</option>
-              <option value="Guitar">Guitar</option>
-              <option value="Drums">Drums</option>
-              <option value="Vocals">Vocals</option>
-              <option value="Bass">Bass</option>
-              <option value="Keyboard">Keyboard</option>
-              <option value="Other">Other</option>
-            </select>
-
-            {/* OTHER INSTRUMENT */}
-            {form.instrument === "Other" && (
               <input
                 required
                 type="text"
-                placeholder="Please specify your instrument"
-                value={form.otherInstrument}
-                onChange={(e) =>
-                  setForm({ ...form, otherInstrument: e.target.value })
-                }
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
+                placeholder="Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
-            )}
 
-            <textarea
-              required
-              placeholder="Experience"
-              rows={4}
-              value={form.experience}
-              onChange={(e) => setForm({ ...form, experience: e.target.value })}
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            />
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+              />
 
-            <textarea
-              required
-              placeholder="About you"
-              rows={5}
-              value={form.about}
-              onChange={(e) => setForm({ ...form, about: e.target.value })}
-              className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white focus:ring-2 ring-amber-400 outline-none"
-            />
+              <input
+                required
+                type="tel"
+                placeholder="Phone"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+              />
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="mt-2 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-3 font-semibold text-black hover:opacity-90 disabled:opacity-50"
-            >
-              {isSubmitting ? "Submitting..." : "Submit Application"}
-            </button>
+              <select
+                required
+                value={form.instrument}
+                onChange={(e) =>
+                  setForm({ ...form, instrument: e.target.value, otherInstrument: "" })
+                }
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+              >
+                <option value="">Select Instrument</option>
+                <option value="Guitar">Guitar</option>
+                <option value="Drums">Drums</option>
+                <option value="Vocals">Vocals</option>
+                <option value="Bass">Bass</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Other">Other</option>
+              </select>
 
-            {isSuccess && <p className="text-green-400">Submitted successfully.</p>}
-            {error && <p className="text-red-400">{error}</p>}
-          </form>
+              {form.instrument === "Other" && (
+                <input
+                  required
+                  type="text"
+                  placeholder="Please specify your instrument"
+                  value={form.otherInstrument}
+                  onChange={(e) =>
+                    setForm({ ...form, otherInstrument: e.target.value })
+                  }
+                  className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+                />
+              )}
+
+              <textarea
+                required
+                placeholder="Experience"
+                rows={4}
+                value={form.experience}
+                onChange={(e) => setForm({ ...form, experience: e.target.value })}
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+              />
+
+              <textarea
+                required
+                placeholder="About you"
+                rows={5}
+                value={form.about}
+                onChange={(e) => setForm({ ...form, about: e.target.value })}
+                className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="mt-4 bg-gradient-to-r from-amber-400 to-orange-500 
+                px-6 py-4 rounded-full text-base font-semibold text-black hover:opacity-90 shadow-lg"
+              >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
+              </button>
+
+              {isSuccess && <p className="text-green-400">Submitted successfully.</p>}
+              {error && <p className="text-red-400">{error}</p>}
+            </form>
+
+          </div>
         </section>
       </div>
     </main>
