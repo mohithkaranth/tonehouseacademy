@@ -24,5 +24,10 @@
     "prisma": "^5.22.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
-  }
+  },
+  "description": "Tonehouse Academy Next.js 14 App Router application",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "packageManager": "npm@10"
 }
