@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "Tonehouse Academy",
   description: "Learn Rock. Play Loud. Perform Live.",
