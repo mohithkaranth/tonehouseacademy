@@ -24,9 +24,18 @@ const initialForm: FormState = {
 
 export default function HomePage() {
   const [form, setForm] = useState<FormState>(initialForm);
+  const [genres, setGenres] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const toggleGenre = (genre: string) => {
+    setGenres((prev) =>
+      prev.includes(genre)
+        ? prev.filter((g) => g !== genre)
+        : [...prev, genre]
+    );
+  };
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,7 +47,10 @@ export default function HomePage() {
       const response = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          genre: genres.join(","),
+        }),
       });
 
       const data = (await response.json()) as { success?: boolean; error?: string };
@@ -49,6 +61,7 @@ export default function HomePage() {
 
       setIsSuccess(true);
       setForm(initialForm);
+      setGenres([]);
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Something went wrong.");
     } finally {
@@ -167,36 +180,22 @@ export default function HomePage() {
 
             <form onSubmit={onSubmit} className="grid gap-4">
 
-              <input
-                required
-                type="text"
-                placeholder="Name"
-                value={form.name}
+              <input required type="text" placeholder="Name" value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
 
-              <input
-                required
-                type="email"
-                placeholder="Email"
-                value={form.email}
+              <input required type="email" placeholder="Email" value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
 
-              <input
-                required
-                type="tel"
-                placeholder="Phone"
-                value={form.phone}
+              <input required type="tel" placeholder="Phone" value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
 
-              <select
-                required
-                value={form.instrument}
+              <select required value={form.instrument}
                 onChange={(e) =>
                   setForm({ ...form, instrument: e.target.value, otherInstrument: "" })
                 }
@@ -212,10 +211,7 @@ export default function HomePage() {
               </select>
 
               {form.instrument === "Other" && (
-                <input
-                  required
-                  type="text"
-                  placeholder="Please specify your instrument"
+                <input required type="text" placeholder="Please specify your instrument"
                   value={form.otherInstrument}
                   onChange={(e) =>
                     setForm({ ...form, otherInstrument: e.target.value })
@@ -224,27 +220,54 @@ export default function HomePage() {
                 />
               )}
 
-              <textarea
-                required
-                placeholder="Experience"
-                rows={4}
+              {/* 🔥 UPDATED GENRE SECTION */}
+              <div className="space-y-3 pt-4">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm text-zinc-400 tracking-wide">
+                    Music Genre
+                  </label>
+                  <span className="text-xs text-zinc-600">Select one or more</span>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {["Rock", "Pop", "Jazz", "Blues", "Metal", "Hip Hop"].map((g) => {
+                    const isSelected = genres.includes(g);
+
+                    return (
+                      <button
+                        key={g}
+                        type="button"
+                        onClick={() => toggleGenre(g)}
+                        className={`
+                          px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                          border
+                          ${
+                            isSelected
+                              ? "bg-gradient-to-r from-amber-400 to-orange-500 text-black border-transparent shadow-md"
+                              : "bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800"
+                          }
+                        `}
+                      >
+                        {g}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <textarea required placeholder="Experience" rows={4}
                 value={form.experience}
                 onChange={(e) => setForm({ ...form, experience: e.target.value })}
                 className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
 
-              <textarea
-                required
-                placeholder="About you"
-                rows={5}
+              <textarea required placeholder="About you" rows={5}
                 value={form.about}
                 onChange={(e) => setForm({ ...form, about: e.target.value })}
                 className="w-full border border-zinc-800 bg-zinc-900 px-4 py-3 rounded-lg text-white focus:ring-2 ring-amber-400 outline-none"
               />
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
+              <button type="submit" disabled={isSubmitting}
                 className="mt-4 bg-gradient-to-r from-amber-400 to-orange-500 
                 px-6 py-4 rounded-full text-base font-semibold text-black hover:opacity-90 shadow-lg"
               >

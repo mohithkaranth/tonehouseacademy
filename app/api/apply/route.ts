@@ -11,7 +11,16 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, email, phone, instrument, otherInstrument, experience, about } = body;
+    const { 
+      name, 
+      email, 
+      phone, 
+      instrument, 
+      otherInstrument, 
+      genre, 
+      experience, 
+      about 
+    } = body;
 
     // 👇 key logic
     const finalInstrument =
@@ -26,9 +35,9 @@ export async function POST(req: Request) {
 
     await sql`
       INSERT INTO "AcademyApplication"
-      (id, name, email, phone, instrument, experience, about, "createdAt")
+      (id, name, email, phone, instrument, "Genre", experience, about, "createdAt")
       VALUES
-      (${crypto.randomUUID()}, ${name}, ${email}, ${phone}, ${finalInstrument}, ${experience}, ${about}, NOW())
+      (${crypto.randomUUID()}, ${name}, ${email}, ${phone}, ${finalInstrument}, ${genre}, ${experience}, ${about}, NOW())
     `;
 
     return NextResponse.json({ success: true });
