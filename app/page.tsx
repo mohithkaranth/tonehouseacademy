@@ -29,6 +29,8 @@ export default function HomePage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [showFullBio, setShowFullBio] = useState(false);
+
   const toggleGenre = (genre: string) => {
     setGenres((prev) =>
       prev.includes(genre)
@@ -166,6 +168,42 @@ export default function HomePage() {
           </p>
         </section>
 
+        {/* INSTRUCTOR */}
+        <section className="space-y-6">
+          <h2 className="text-2xl text-white">Meet Your Instructor</h2>
+
+          <div className="flex flex-col items-center space-y-4">
+            <img
+              src="/instructor.jpeg"
+              alt="Instructor"
+              className="w-40 h-40 rounded-full object-cover"
+            />
+
+            <h3 className="text-xl text-amber-400">Oliver</h3>
+
+            <p className="text-zinc-400 max-w-xl leading-relaxed">
+              Oliver is a multi-instrumentalist and educator inspired by Blues, Funk, Electronic, Pop, and Rock. 
+              Since 2010, he has taught drums, bass, guitar, and more to 250+ students worldwide.
+            </p>
+
+            {showFullBio && (
+              <p className="text-zinc-500 max-w-xl leading-relaxed">
+                Alongside teaching, Oliver performs regularly and co-founded Ann Siang Sounds, a jam community 
+                bringing musicians together to collaborate, improvise, and build confidence in real band settings. 
+                With experience spanning education, events, and music business, he is dedicated to nurturing 
+                Singapore’s next generation of musicians.
+              </p>
+            )}
+
+            <button
+              onClick={() => setShowFullBio(!showFullBio)}
+              className="text-amber-400 text-sm"
+            >
+              {showFullBio ? "Show less" : "Read more"}
+            </button>
+          </div>
+        </section>
+
         {/* FORM */}
         <section id="form" className="pt-20">
           <div className="max-w-xl mx-auto bg-zinc-950/60 border border-zinc-800 rounded-2xl p-8 shadow-xl">
@@ -220,7 +258,6 @@ export default function HomePage() {
                 />
               )}
 
-              {/* 🔥 UPDATED GENRE SECTION */}
               <div className="space-y-3 pt-4">
                 <div className="flex items-center justify-between">
                   <label className="text-sm text-zinc-400 tracking-wide">
@@ -238,15 +275,11 @@ export default function HomePage() {
                         key={g}
                         type="button"
                         onClick={() => toggleGenre(g)}
-                        className={`
-                          px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                          border
-                          ${
-                            isSelected
-                              ? "bg-gradient-to-r from-amber-400 to-orange-500 text-black border-transparent shadow-md"
-                              : "bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800"
-                          }
-                        `}
+                        className={`px-4 py-2 rounded-full text-sm font-medium border ${
+                          isSelected
+                            ? "bg-gradient-to-r from-amber-400 to-orange-500 text-black border-transparent"
+                            : "bg-zinc-900 text-zinc-300 border-zinc-700"
+                        }`}
                       >
                         {g}
                       </button>
@@ -268,8 +301,7 @@ export default function HomePage() {
               />
 
               <button type="submit" disabled={isSubmitting}
-                className="mt-4 bg-gradient-to-r from-amber-400 to-orange-500 
-                px-6 py-4 rounded-full text-base font-semibold text-black hover:opacity-90 shadow-lg"
+                className="mt-4 bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-4 rounded-full text-base font-semibold text-black"
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
@@ -280,6 +312,7 @@ export default function HomePage() {
 
           </div>
         </section>
+
       </div>
     </main>
   );
