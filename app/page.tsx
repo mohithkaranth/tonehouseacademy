@@ -147,9 +147,9 @@ export default function HomePage() {
           <h2 className="text-2xl text-white">Music Genres</h2>
 
           <p className="text-xl md:text-2xl tracking-wide text-zinc-300 leading-relaxed">
-            Rock &nbsp;•&nbsp; Metal &nbsp;•&nbsp; Pop
+            Rock &nbsp;•&nbsp; Pop &nbsp;•&nbsp; Blues
             <br />
-            Blues &nbsp;•&nbsp; Jazz
+            Funk &nbsp;•&nbsp; RnB
           </p>
 
           <p className="text-sm text-zinc-600">And more as we grow</p>
@@ -182,16 +182,12 @@ export default function HomePage() {
             <h3 className="text-xl text-amber-400">Oliver</h3>
 
             <p className="text-zinc-400 max-w-xl leading-relaxed">
-              Oliver is a multi-instrumentalist and educator inspired by Blues, Funk, Electronic, Pop, and Rock. 
-              Since 2010, he has taught drums, bass, guitar, and more to 250+ students worldwide.
+              Oliver is a multi-instrumentalist and educator inspired by Blues, Funk, Electronic, Pop, and Rock. Since 2010, he has taught drums, bass, electric and acoustic guitar, ukulele, live looping, and more to 250+ students worldwide. He has worked with schools to develop and teach courses like RockSchool, Trinity, and IB Diploma syllabi.
             </p>
 
             {showFullBio && (
               <p className="text-zinc-500 max-w-xl leading-relaxed">
-                Alongside teaching, Oliver performs regularly and co-founded Ann Siang Sounds, a jam community 
-                bringing musicians together to collaborate, improvise, and build confidence in real band settings. 
-                With experience spanning education, events, and music business, he is dedicated to nurturing 
-                Singapore’s next generation of musicians.
+                Alongside teaching, Oliver performs regularly in his bands Sun City Sons and Jukuleles. He also co-founded Ann Siang Sounds, an open jam community bringing musicians together to collaborate, improvise, and build confidence in real band settings. His work reflects a natural progression from one-on-one teaching, to performing in and coaching bands, and now facilitating live jam environments that bring together students, amateurs, and professionals alike. With experience spanning education, events, and music business, he is dedicated to nurturing Singapore’s next generation of musicians.
               </p>
             )}
 
@@ -267,7 +263,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {["Rock", "Pop", "Jazz", "Blues", "Metal", "Hip Hop"].map((g) => {
+                  {["Rock", "Pop", "Blues", "Funk", "RnB"].map((g) => {
                     const isSelected = genres.includes(g);
 
                     return (
